@@ -17,30 +17,20 @@ int main()
 {
     NODE *head=NULL;
     slist sl;
-    int ch;
-    while(1)
+    cout<<"Enter the number of nodes:";
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
     {
-        cout<<"\n1.insert\n";
-        cout<<"2.reverse\n";
-        cout<<"3.display\n";
-        cout<<"4.exit\n";
-        cin>>ch;
-        switch(ch)
-        {
-            case 1:head=sl.insert1(head);
-            break;
-            case 2:head=sl.reverse1(head);
-            break;
-            case 3:sl.display(head);
-            break;
-            case 4:exit(0);
-            break;
-        }
+        head=sl.insert1(head);
     }
-   return 0;
+    cout<<"\nContent of Singly Linked List:";
+    sl.display(head);
+    head=sl.reverse1(head);
+    cout<<"\nReverse Of Given Singly LIst Is:";
+    sl.display(head);
 }
 
-/*
 NODE *slist::insert1(NODE *head)
 {
 
@@ -66,29 +56,6 @@ NODE *slist::insert1(NODE *head)
 
     }
     return(head);
-}
-*/
-NODE *slist::insert1(NODE *head)
-{
-    NODE *newnode;
-    int num;
-    newnode=(NODE *)malloc(sizeof(NODE));
-    cout<<"enter the node:";
-    cin>>num;
-
-    newnode->data=num;
-    newnode->ptr=NULL;
-
-    if(head==NULL)
-    {
-        head=newnode;
-    }
-    else
-    {
-        newnode->ptr=head;
-        head=newnode;
-    }
-    return head;
 }
 NODE *slist::reverse1(NODE *head)
 {
